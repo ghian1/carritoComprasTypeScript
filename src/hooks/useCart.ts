@@ -37,11 +37,11 @@ export const useCart = () => {
             }
         }
     
-        function removeFromCart(idProduct) {
+        function removeFromCart(idProduct : Product['id']) {
             setCart(prevCart => prevCart.filter(product => product.id !== idProduct));
         }
     
-        function increaseQuantity(idProduct) {
+        function increaseQuantity(idProduct : Product['id']) {
             const updatedCart = cart.map(product => {
                 if (product.id === idProduct && product.quantity < MAX_QUANTITY) {
                     return {
@@ -54,7 +54,7 @@ export const useCart = () => {
             setCart(updatedCart);
         }
     
-        function decreaseQuantity(idProduct) {
+        function decreaseQuantity(idProduct : Product['id']) {
             const updatedCart = cart.map(product => {
                 if (product.id === idProduct && product.quantity > MIN_QUANTITY) {
                     return {
@@ -67,7 +67,7 @@ export const useCart = () => {
             setCart(updatedCart);
         }
     
-        function clearCart(e) {
+        function clearCart() {
             setCart([]);
         }
 
